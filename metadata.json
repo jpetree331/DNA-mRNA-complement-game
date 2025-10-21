@@ -1,0 +1,5 @@
+{
+  "name": "DNA Dash: A Base Pairing Game",
+  "description": "An educational and gamified web application that teaches complementary DNA base pairing. Players must complete DNA sequences against the clock, with dynamic mission briefings and fun facts provided by AI.",
+  "requestFramePermissions": []
+}
