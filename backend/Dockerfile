@@ -1,17 +1,20 @@
 # Use Node 20 Alpine for smaller image size
 FROM node:20-alpine
 
+# Install curl for health checks
+RUN apk add --no-cache curl
+
 # Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy backend package files
+COPY backend/package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install only backend dependencies
+RUN npm ci --omit=dev
 
-# Copy source code
-COPY . .
+# Copy backend source code
+COPY backend/ .
 
 # Expose port
 EXPOSE 3001
