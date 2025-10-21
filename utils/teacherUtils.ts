@@ -4,6 +4,20 @@ const getTeacherNames = (): string[] => {
   return teacherNames.split(',').map(name => name.trim());
 };
 
+// Capitalize first letter of last name
+const capitalizeLastName = (name: string): string => {
+  const parts = name.trim().split(' ');
+  if (parts.length === 1) {
+    // If only one name, capitalize the first letter
+    return parts[0].charAt(0).toUpperCase() + parts[0].slice(1).toLowerCase();
+  } else {
+    // If multiple names, capitalize the last part (last name)
+    const lastName = parts[parts.length - 1];
+    const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
+    return parts.slice(0, -1).join(' ') + ' ' + capitalizedLastName;
+  }
+};
+
 // Simple Levenshtein distance calculation for fuzzy matching
 const levenshteinDistance = (str1: string, str2: string): number => {
   const matrix = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null));
@@ -47,12 +61,12 @@ export const findClosestTeacher = (inputName: string): string => {
   }
   
   // If the distance is too high (more than 3 characters different), 
-  // return the original input to avoid incorrect matches
+  // return the capitalized original input to avoid incorrect matches
   if (bestDistance > 3) {
-    return inputName;
+    return capitalizeLastName(inputName);
   }
   
-  return bestMatch;
+  return capitalizeLastName(bestMatch);
 };
 
 // Normalize teacher name for consistent storage

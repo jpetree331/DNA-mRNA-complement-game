@@ -3,9 +3,10 @@ import { User } from '../types';
 
 interface LoginScreenProps {
   onLogin: (user: User) => void;
+  onDataAccess: () => void;
 }
 
-const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin, onDataAccess }) => {
   const [firstName, setFirstName] = useState('');
   const [teacherName, setTeacherName] = useState('');
   const [error, setError] = useState('');
@@ -84,12 +85,21 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
           </div>
         )}
         
-        <button 
-          type="submit"
-          className="bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-500 transition-transform transform hover:scale-105 font-display text-xl w-full"
-        >
-          Start Mission
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button 
+            type="submit"
+            className="bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-500 transition-transform transform hover:scale-105 font-display text-xl flex-1"
+          >
+            Start Mission
+          </button>
+          <button 
+            type="button"
+            onClick={onDataAccess}
+            className="bg-purple-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-500 transition-transform transform hover:scale-105 font-display text-xl flex-1"
+          >
+            Data Access
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -193,7 +193,7 @@ const App: React.FC = () => {
 
         switch (gameState) {
             case GameState.Login:
-                return <LoginScreen onLogin={handleLogin} />;
+                return <LoginScreen onLogin={handleLogin} onDataAccess={handleDataAccess} />;
             case GameState.DataView:
                 return <DataView onBack={handleBackFromData} />;
             case GameState.Start:
@@ -218,12 +218,9 @@ const App: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex justify-center">
                             <button onClick={handleStartGame} className="bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-500 transition-transform transform hover:scale-105 font-display text-xl">
                                 Start Mission
-                            </button>
-                            <button onClick={handleDataAccess} className="bg-purple-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-500 transition-transform transform hover:scale-105 font-display text-xl">
-                                Data Access
                             </button>
                         </div>
                     </div>
