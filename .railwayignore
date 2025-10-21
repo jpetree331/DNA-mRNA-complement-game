@@ -1,0 +1,17 @@
+# Frontend files (not needed for backend deployment)
+components/
+services/
+utils/
+App.tsx
+index.tsx
+index.html
+vite.config.ts
+tsconfig.json
+constants.ts
+types.ts
+metadata.json
+
+# Development files
+*.md
+.git/
+node_modules/
