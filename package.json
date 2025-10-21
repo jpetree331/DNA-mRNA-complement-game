@@ -1,19 +1,23 @@
 {
-  "name": "dna-dash-backend-railway",
-  "version": "1.0.0",
-  "description": "Backend API for DNA Dash game - Railway deployment",
-  "main": "backend/server.js",
+  "name": "dna-dash:-a-base-pairing-game",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "cd backend && npm start",
-    "install": "cd backend && npm install"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@libsql/client": "^0.4.0",
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "@google/genai": "^1.24.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
   },
   "engines": {
     "node": ">=20.0.0"
