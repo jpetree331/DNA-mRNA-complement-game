@@ -5,8 +5,7 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "cd backend && npm start",
-    "dev": "cd backend && npm run dev",
-    "install": "cd backend && npm install"
+    "dev": "cd backend && npm run dev"
   },
   "dependencies": {
     "@libsql/client": "^0.4.0",
